@@ -1,0 +1,33 @@
+
+
+.navBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navBar img{
+    width: 100px;
+}
+.search select{
+    width: 300px;
+    height: 30px;
+    border: none;
+    border-radius: 16px;
+    background-color: #f2f5f2;
+}
+#container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.card{
+    width: 400px;
+    height: 500px;
+    background-color: #fff;
+}
+.card img{
+    width: 100%;
+    
+}
+.card:hover{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
