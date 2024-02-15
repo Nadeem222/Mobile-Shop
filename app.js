@@ -7,24 +7,27 @@ let container = document.querySelector("#container");
 let mobiles = {
     iphone: {
         iphone15 :{
+            maker: "Apple",
             model: "iphone15",
             ram: "8Gb",
             rom: "256gb",
             colors: ["Gray" , "BLack" , "Yellow"],
-            image : "./08Ir7mtBq7b4sRVypsg9ozIIRGGsLsg2oJxQXDEt.png"
+            image : "./img/iphone 15.jpg"
 
         },
         iphone14 :{
+            maker: "Apple",
             model: "iphone14",
             ram: "6Gb",
             rom: "128gb",
             colors: ["Gray" , "BLack" , "Yellow"],
-            image : "./img/iphone14.jpg"
+            image : "./img/iphone 14.jpg"
 
         }
     },
     oppo:{
         oppoF19:{
+            maker: "Oppo",
             model: "OppoF19",
             ram: "8Gb",
             rom: "128gb",
@@ -32,6 +35,7 @@ let mobiles = {
             image : "./img/oppoF19.jpg"
         },
         oppoF21:{
+            maker: "Oppo",
             model: "OppoF21",
             ram: "16Gb",
             rom: "256gb",
@@ -83,7 +87,8 @@ function generateCard(model) {
     <div class="card">
         <img src="${model.image}" alt="${model.model}">
         <div class="card-details">
-            <h2>${model.model}</h2>
+            <h2>${model.maker}</h2>
+            <p>${model.model}</P>
             <p>RAM: ${model.ram}</p>
             <p>ROM: ${model.rom}</p>
             <p>Colors: ${model.colors.join(', ')}</p>
