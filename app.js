@@ -1,6 +1,7 @@
 let brand = document.querySelector("#brandSearch");
 let container = document.querySelector("#container");
 let searchByModel = document.querySelectorAll("h1");
+let logo = document.querySelector(".logoImg");
 
 
 
@@ -33,17 +34,28 @@ let mobiles = {
         iphone13 :{
             maker: "Apple",
             model: "iPhone 13 Pro",
-            price: "150,000",
+            price: "170,000",
             ram: "6Gb",
             rom: "128gb",
             colors: ["#475345" , "BLack" , "#FFECE8"],
             image : "./img/iphone 13back.jpg",
             imageHover: "./img/th.jpg"
 
+        },
+        iphone12 :{
+            maker: "Apple",
+            model: "iPhone 12",
+            price: "150,000",
+            ram: "6Gb",
+            rom: "128gb",
+            colors: ["#475345" , "BLack" , "red"],
+            image : "./img/iphone12.jpg",
+            imageHover: "./img/th.jpg"
+
         }
     },
     samsung:{
-        s24:{
+        s24ultra:{
             maker:"Samsung",
             model:"S24 Ultra",
             price: "374,000",
@@ -51,11 +63,11 @@ let mobiles = {
             image : "./img/S24ultra.jpg",
             imageHover: "./img/S24ultra.jpg"
         },
-        zflip:{
+        zfold:{
             maker:"Samsung",
-            model:"Galaxy Z Flip 4",
+            model:"Galaxy Z fold 5",
             price: "332,999",
-            colors: ["#C2CDBA" , "#F2D6CE" , "#41424C" ," #192343"
+            colors: [ "#F2D6CE" , "#41424C" ," #192343"
         ],
             image : "./img/zflip.jpeg",
             imageHover: "./img/S24ultra.jpg",
@@ -66,38 +78,108 @@ let mobiles = {
        
 
         },
+        zflip:{
+            maker:"Samsung",
+            model:"Galaxy Z Flip ",
+            price: "332,999",
+            colors: [ "#F2D6CE" , "#41424C" ," #192343"
+        ],
+            image : "./img/flip.jpg",
+            imageHover: "./img/S24ultra.jpg",
+            ram: "8gb",
+            rom: "128gb/256gb/512",
+            main:"Dual 12 MP, f/1.8, 24mm (wide), Dual Pixel PDAF, OIS + 12 MP, f/2.2, (ultrawide), LED Flash ",
+            front: "10 MP, f/2.4, 26mm (wide), HDR, Video (4K@30fps)  "                
+       
+
+        },
         s24:{
             maker:"Samsung",
-            model:"S24 Ultra",
+            model:"S24",
             price: "374,000",
             colors: ["#C2CDBA" , "#DD9C6B" , "#FFECE8"],
-            image : "./img/S24ultra.jpg",
-            imageHover: "./img/S24ultra.jpg"
+            image : "./img/s24.jpg",
+            imageHover: "./img/s2"
         }
 
+    },
+    google:{
+        pixel7a:{
+            maker:"Google",
+            model:"Google pixel 7a",
+            price: "140,000",
+            colors: ["#C2CDBA" , "#DD9C6B" , "#FFECE8"],
+            image : "./img/pixel7a.jpg",
+            imageHover: "./img/s2"
+        },
+        pixel7:{
+            maker:"Google",
+            model:"Google pixel 7",
+            price: "125,000",
+            colors: ["#CFDED9" , "#DD9C6B" , "#FFECE8"],
+            image : "./img/pixel-7.jpg",
+            imageHover: "./img/s2"
+        },
+        pixel8a:{
+            maker:"Google",
+            model:"Google pixel 8a",
+            price: "180,000",
+            colors: ["#C2CDBA" , "#DD9C6B" , "#FFECE8"],
+            image : "./img/Pixel-8a.jpg",
+            imageHover: "./img/s2"
+        },
+        pixel8:{
+            maker:"Google",
+            model:"Google pixel 8",
+            price: "165,000",
+            colors: ["#C2CDBA" , "#DD9C6B" , "#FFECE8"],
+            image : "./img/Pixel-8.jpg",
+            imageHover: "./img/s2"
+        },
     },
     oppo:{
         oppof19:{
             maker: "Oppo",
-            model: "OppoF19",
-            price: "450,000",
+            model: "Oppo F19 Pro",
+            price: "48,000",
             ram: "8Gb",
             rom: "128gb",
-            colors: ["purple" , "White" , "oliveGreen"],
+            colors: ["purple" , "blue" , "oliveGreen"],
             image : "./img/oppoF19.jpg"
         },
         oppof21:{
             maker: "Oppo",
             model: "OppoF21",
-            price: "450,000",
+            price: "85,000",
             ram: "16Gb",
             rom: "256gb",
-            colors: ["purple" , "Black" , "Yellow"],
-            image : "./08Ir7mtBq7b4sRVypsg9ozIIRGGsLsg2oJxQXDEt.png"
-        }
+            colors: ["#F19A4A" , "Black" , "gray"],
+            image : "./img/oppoF21.jpg"
+        },
+        opporeno6:{
+            maker: "Oppo",
+            model: "Oppo Reno 6",
+            price: "62,000",
+            ram: "16Gb",
+            rom: "256gb",
+            colors: ["#BDE2EF" , "Black" , "gray"],
+            image : "./img/opporeno6.webp"
+        },
+        oppoa5:{
+            maker: "Oppo",
+            model: "Oppo A5 ",
+            price: "50,000",
+            ram: "16Gb",
+            rom: "256gb",
+            colors: ["#BDE2EF" , "Black" , "gray"],
+            image : "./img/oppoa5.jpg"
+        },
     }
     
 }
+logo.addEventListener('click' , function(){
+    showAllItems()
+})
 
 function showAllItems(){
     if (mobiles){
