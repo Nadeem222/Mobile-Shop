@@ -15,6 +15,9 @@ body{
 nav{
     width: 100%;
     background-color: #48AFFF;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
 }
 .navBar {
     display: flex;
@@ -34,7 +37,7 @@ nav{
     width: 98%;
     border: none;
     border-radius: 8px;
-    font-size: 20px;
+    font-size: 18px;
     padding-left: 20px;
 }
 .search{
@@ -68,14 +71,15 @@ nav{
 }
 .register{
     background: transparent;
-    border: 1px solid #fff;
+    border: 1px solid #fff !important;
     color: #fff;
+    margin-left: 5px;
 }
 /* hero section Styling */
 .chooseBrand{
     width: 95%;
     display: flex;
-    margin-top: 40px;
+    margin-top: 80px;
     flex-direction: column;
     text-align: center;
 
@@ -138,8 +142,8 @@ nav{
 
 }
 .card{
-    width: 450px;
-    height: 300px;
+    width: 400px;
+    height: 250px;
     background-color: #fff;
     display: flex;
     color: rgb(51, 51, 51);
@@ -183,7 +187,8 @@ nav{
     color: red;
 }
 .card-details{
-    padding: 10px 10px;
+    padding: 10px 0px 10px 10px;
+
 }
 .card-con{
     display: flex;
@@ -207,6 +212,7 @@ nav{
     border-radius: 30px;
     font-weight: 800;
     background-color: #fff;
+    cursor: pointer;
 }
 .cartBtn{
     background-color: red !important;
@@ -220,4 +226,97 @@ nav{
     height: 20px;
     margin-right: 5px;
     border: 3px solid #DBDBDB;
+}
+/* Detail Card Styling */
+.detailCard{
+    display: flex;
+    flex-direction: column;
+}
+.leftSide{
+    width: 30%;
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+
+}
+li{
+    width: 100px;
+    height: 100px;
+    border: 2px solid #DBDBDB;
+    border-radius: 8px;
+    padding: 2px;
+    margin-bottom: 5px;
+}
+li img{
+    width: 100%;
+}
+.mainImg{
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+.mainImg img{
+    width: 100%;
+    height: 500px;
+
+}
+.imageSec{
+    display: flex;
+}
+.speficationDetail{
+    width: 100%;
+    padding: 40px;
+}
+.speficationPara{
+    font-size: 15px;
+    width: 70%;
+    font-weight: 200;
+    display: flex;
+    padding: 5px;
+    border-radius: 8px;
+    
+}
+
+.speficationDetail p{
+    width: 70%;
+}
+.screen{
+    background-color: #F1F8FF;
+}
+
+@media only screen and (max-width: 1280px){
+    .buttons{
+        width: 30%;
+    }
+    .search{
+        width: 35%;
+    }
+    .navBar{
+        height: 80px;
+    }
+    .buttons button{
+        width: 110px;
+        height: 45px;
+        font-size: 16px;
+    }
+    .search input{
+        padding: 12px 10px;
+    }
+    .search span i{
+        font-size: 18px;
+        right: 5px;
+        top: 16px;
+    }
+    .card-con{
+        width: 420px;
+    }
+    .bottom button{
+        width: 100px;
+        font-size: 10px !important;
+    }
+    .color{
+        width: 12px;
+        height: 12px;
+    }
 }

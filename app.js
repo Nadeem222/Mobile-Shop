@@ -4,6 +4,7 @@ let searchByModel = document.querySelectorAll("h1");
 
 
 
+
 // let model = prompt("Enter Model Name");
 
 
@@ -19,7 +20,7 @@ let mobiles = {
             image : "./img/iphone 15.jpg"
 
         },
-        iphone14 :{
+        iPhone14ProMax :{
             maker: "Apple",
             model: "iPhone 14 Pro Max",
             price: "450,000",
@@ -49,7 +50,31 @@ let mobiles = {
             colors: ["#C2CDBA" , "#DD9C6B" , "#FFECE8"],
             image : "./img/S24ultra.jpg",
             imageHover: "./img/S24ultra.jpg"
+        },
+        zflip:{
+            maker:"Samsung",
+            model:"Galaxy Z Flip 4",
+            price: "332,999",
+            colors: ["#C2CDBA" , "#F2D6CE" , "#41424C" ," #192343"
+        ],
+            image : "./img/zflip.jpeg",
+            imageHover: "./img/S24ultra.jpg",
+            ram: "8gb",
+            rom: "128gb/256gb/512",
+            main:"Dual 12 MP, f/1.8, 24mm (wide), Dual Pixel PDAF, OIS + 12 MP, f/2.2, (ultrawide), LED Flash ",
+            front: "10 MP, f/2.4, 26mm (wide), HDR, Video (4K@30fps)  "                
+       
+
+        },
+        s24:{
+            maker:"Samsung",
+            model:"S24 Ultra",
+            price: "374,000",
+            colors: ["#C2CDBA" , "#DD9C6B" , "#FFECE8"],
+            image : "./img/S24ultra.jpg",
+            imageHover: "./img/S24ultra.jpg"
         }
+
     },
     oppo:{
         oppof19:{
@@ -90,7 +115,7 @@ showAllItems()
 
 searchByModel.forEach(searchByModel => {
     searchByModel.addEventListener('click' , function (){
-        let brandValue= searchByModel.textContent;
+        let brandValue= searchByModel.textContent.toLocaleLowerCase();
         renderBrand(brandValue)
     })
     
@@ -101,11 +126,25 @@ brand.addEventListener('keypress' , function (){
         container.innerHTML = "";
         let selectedBrand = brandSearch.value.trim().toLowerCase();
 
-        if(selectedBrand === ""){
-            showAllItems()
-        }else{
-
-            renderBrand(selectedBrand);
+        if (selectedBrand === "") {
+            showAllItems();
+        } else {
+            let modelFound = false;
+            for (let brand in mobiles) {
+                const models = mobiles[brand];
+                for (let key in models) {
+                    if (key.toLowerCase() === selectedBrand) {
+                        container.innerHTML += generateCard(models[key]);
+                        modelFound = true;
+                        break;
+                    }
+                }
+                if (modelFound) break;
+            }
+            if (!modelFound) {
+                
+                renderBrand(selectedBrand);
+            }
         }
     }
 
@@ -114,7 +153,7 @@ brand.addEventListener('keypress' , function (){
 function renderBrand(brand){
 
     container.innerHTML = '';
-
+    console.log(brand)
 
     if (mobiles[brand]) {
         const models = mobiles[brand];
@@ -142,12 +181,74 @@ function generateCard(model) {
         </div>
         <div class="bottom">
             <span><input type="checkbox" > Compare</span>
-            <button>View Detail's</button>
+            <button id="item" onclick="generateDetailCard('${model.model}')" >View Detail's</button>
             <button class="cartBtn">Add to Cart</button>
         </div>
         
     </div>
     `;
+}
+function generateDetailCard(maker){
+    container.innerHTML = '';
+    // console.log(maker)
+
+    if (mobiles[maker]) {
+        const models = mobiles[maker];
+        console.log(models)
+        for (let key in models) {
+            const model = models[key];
+            container.innerHTML += detailCard(model);
+        }
+    }
+}
+
+
+function detailCard(item){
+    console.log(item.image)
+    return `
+    <div class="detailCard">
+        <div class="imageSec">
+
+            <div class="leftSide">
+                <ul>
+                    <li><img src="./img/zflip.jpeg" alt=""></li>
+                    <li><img src="./img/zflip.jpeg" alt=""></li>
+                    <li><img src="./img/zflip.jpeg" alt=""></li>
+                </ul>
+            </div>
+            <div class="mainImg">
+                <img src="${item.image}" alt="">
+                
+            </div>
+            <div class="modelDetail">
+                <h2>${item.maker} - ${item.model}</h2>
+                <p>Model:MMMA3LL/ASKU:6417792</p>
+                <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><span>4.8</span><small>(900reviews)</small> </p>
+                <p>${item.colors.map(color => `<span class="color" style="background-color: ${color}; "></span>`).join('')}</p>
+                <p class="price">RS 375,000</p>
+            </div>
+        </div>
+        <div class="speficationDetail">
+            <h3>Spefications</h3>
+            <div class="speficationPara screen">
+                <p >Screen size</p>
+                <p>6.1inches</p>
+            </div>
+            <div class="speficationPara">
+                <p>Rear-Facing Camera</p>
+                <p>6.1inches</p>
+            </div>
+            <div class="speficationPara screen" >
+                <p >Front-Facing Camera</p>
+                <p>6.1inches</p>
+            </div>
+            <div class="speficationPara">
+                <p>Series</p>
+                <p>Iphone13</p>
+            </div>
+        </div>
+    </div>
+    `
 }
 
 
