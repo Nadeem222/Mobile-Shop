@@ -148,7 +148,7 @@ nav{
 
 }
 .card{
-    width: 450px;
+    width: 100%;
     height: 250px;
     background-color: #fff;
     display: flex;
@@ -339,5 +339,12 @@ footer span a:hover{
     .color{
         width: 12px;
         height: 12px;
+    }
+    .styles_singlePhone img{
+        width: 90px;
+    }
+    .style_back{
+        top: -27;
+        right: 9px;
     }
 }

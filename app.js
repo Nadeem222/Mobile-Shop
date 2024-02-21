@@ -18,7 +18,7 @@ let mobiles = {
             ram: "8Gb",
             rom: "256gb",
             colors: ["Gray" , "BLack" , "#E7E4DD"],
-            image : "./img/iphone 15.jpg"
+            image : "./img/iphone 15.jpg",
 
         },
         iPhone14ProMax :{
@@ -178,10 +178,12 @@ let mobiles = {
     
 }
 logo.addEventListener('click' , function(){
+    container.innerHTML = "";
     showAllItems()
-})
+});
 
 function showAllItems(){
+    container.innerHTML = "";
     if (mobiles){
         const mobile = mobiles;
         for(let key in mobile){
@@ -191,6 +193,7 @@ function showAllItems(){
                 container.innerHTML += generateCard(phone)
             }
         }
+        // attachEventListeners();
     }
 }
 showAllItems()
@@ -263,39 +266,46 @@ function generateCard(model) {
         </div>
         <div class="bottom">
             <span><input type="checkbox" > Compare</span>
-            <button id="item" onclick="generateDetailCard('${model.model}')" >View Detail's</button>
+            <button class="viewDetailBtn" onclick="generateDetailCard('${model.model}')" >View Detail's</button>
             <button class="cartBtn">Add to Cart</button>
         </div>
         
     </div>
     `;
 }
-function generateDetailCard(maker){
-    container.innerHTML = '';
-    // console.log(maker)
-
-    if (mobiles[maker]) {
-        const models = mobiles[maker];
-        console.log(models)
-        for (let key in models) {
-            const model = models[key];
-            container.innerHTML += detailCard(model);
+function generateDetailCard(model) {
+    container.innerHTML = ''; 
+    for (let key in mobiles) {
+        for (let key1 in mobiles[key]) {
+            const item = mobiles[key][key1];
+            if (item.model === model) {
+                container.innerHTML += detailCard(item);
+                break;
+            }
         }
     }
 }
-
+function attachEventListeners() {
+    const viewDetailButtons = document.querySelectorAll('.viewDetailBtn');
+    viewDetailButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const model = this.getAttribute('data-model');
+            generateDetailCard(model);
+        });
+    });
+}
 
 function detailCard(item){
-    console.log(item.image)
+    console.log(item.model)
     return `
     <div class="detailCard">
         <div class="imageSec">
 
             <div class="leftSide">
                 <ul>
-                    <li><img src="./img/zflip.jpeg" alt=""></li>
-                    <li><img src="./img/zflip.jpeg" alt=""></li>
-                    <li><img src="./img/zflip.jpeg" alt=""></li>
+                    <li><img src="${item.image}" alt=""></li>
+                    <li><img src="${item.image}" alt=""></li>
+                    <li><img src="${item.image}" alt=""></li>
                 </ul>
             </div>
             <div class="mainImg">
